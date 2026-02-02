@@ -1,0 +1,93 @@
+[
+    {
+        "nome": "AMOXILINA",
+        "horario": "17:30",
+        "tipo": "MEDICAÇÃO",
+        "desc": "875MG 12/12 HORAS",
+        "observacao": "-"
+    },
+    {
+        "nome": "ÁGUA MINERAL",
+        "horario": "17:38",
+        "tipo": "HIDRATAÇÃO",
+        "desc": "250ML",
+        "observacao": "-"
+    },
+    {
+        "nome": "LEVOID",
+        "horario": "18:09",
+        "tipo": "MEDICAÇÃO",
+        "desc": "1 COMPRIMIDO EM JEJUM",
+        "observacao": "-"
+    },
+    {
+        "nome": "KEPRA",
+        "horario": "18:10",
+        "tipo": "MEDICAÇÃO",
+        "desc": "100GM/ML 10ML 12/12 HORAS",
+        "observacao": "-"
+    },
+    {
+        "nome": "NEBULIZAÇÃO",
+        "horario": "18:11",
+        "tipo": "NEBULIZAÇÃO",
+        "desc": "NEBULIZAÇÃO - ASPIRAÇÃO - ATROVENT 35 GOTAS",
+        "observacao": "-"
+    },
+    {
+        "nome": "SINAIS VITAIS",
+        "horario": "18:12",
+        "tipo": "SINAIS VITAIS",
+        "desc": "TEMPERATURA - FREQUENCIA CARDÍACA - PRESSÃO ARTERIAL",
+        "observacao": "FREQUENCIA RESPIRATÓRIA - PULSO - DOR"
+    },
+    {
+        "nome": "ATROPINA 1%",
+        "horario": "17:47",
+        "tipo": "MEDICAÇÃO",
+        "desc": "5 GOTAS 06/06 HROAS",
+        "observacao": "-"
+    },
+    {
+        "nome": "SIMETICONA",
+        "horario": "17:22",
+        "tipo": "MEDICAÇÃO",
+        "desc": "40 GOTAS - ",
+        "observacao": "-"
+    },
+    {
+        "nome": "DOMPERIDONA",
+        "horario": "17:23",
+        "tipo": "MEDICAÇÃO",
+        "desc": "10ML",
+        "observacao": "-"
+    },
+    {
+        "nome": "DOMPERIDONA",
+        "horario": "17:25",
+        "tipo": "MEDICAÇÃO",
+        "desc": "10ML",
+        "observacao": "-"
+    },
+    {
+        "nome": "DOMPERIDONA",
+        "horario": "17:26",
+        "tipo": "MEDICAÇÃO",
+        "desc": "10ML",
+        "observacao": "-"
+    },
+    {
+        "nome": "DOMPERIDONA",
+        "horario": "17:27",
+        "tipo": "MEDICAÇÃO",
+        "desc": "10ML",
+        "observacao": "-"
+    },
+    {
+        "nome": "DOMPERIDONA",
+        "horario": "17:28",
+        "tipo": "MEDICAÇÃO",
+        "desc": "10ML",
+        "observacao": "-"
+    }
+]

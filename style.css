@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    height: 100vh;
+    background: linear-gradient(
+        315deg,
+        #f8f6f1 0%,
+        #ffffff 50%,
+        #f1efe8 100%
+    );
+    font-family: "Inter", system-ui, sans-serif;
+    overflow: hidden;
+    color: #111827;
+}
+
+/* ===== DATA E HORA ===== */
+#hora-atual {
+    position: absolute;
+    top: 24px;
+    right: 40px;
+    font-size: 72px;
+    font-weight: 700;
+}
+
+#data-atual {
+    position: absolute;
+    top: 110px;
+    right: 40px;
+    font-size: 24px;
+    opacity: 0.75;
+}
+
+/* ===== CONTAINER ===== */
+#container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+    width: 100%;
+    position: relative;
+}
+
+/* ===== ITEM BASE ===== */
+li {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    padding: 16px 20px;
+    border-radius: 16px;
+
+    background: #9ca3af;
+    color: #ffffff;
+
+    transition:
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.6s ease,
+        background-color 0.6s ease,
+        box-shadow 0.6s ease;
+}
+
+/* ===== LINHA TOPO ===== */
+.linha-topo {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    align-items: center;
+}
+
+/* alinhar vertical REAL */
+.linha-topo > div {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+/* esquerda */
+.cor {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+}
+
+.horario {
+    margin-left: 12px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+/* centro */
+.nome {
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* direita */
+.tipo {
+    justify-content: flex-end;
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+/* ===== LINHA INFERIOR ===== */
+.descricao {
+    font-size: 18px;
+    text-align: center;
+    opacity: 0.95;
+}
+
+.obs {
+    font-size: 15px;
+    text-align: center;
+    opacity: 0.7;
+}
+
+/* ========================= */
+/* ===== ATUAL ===== */
+/* ========================= */
+.atual {
+    top: 50%;
+    transform: translate(-50%, 0) scale(1.03);
+    width: 90%;
+
+    background: #facc15;
+    color: #000000;
+
+    z-index: 4;
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.25),
+        0 0 0 4px rgba(250, 204, 21, 0.35);
+}
+
+/* ========================= */
+/* ===== ANTERIORES ===== */
+/* ========================= */
+.anterior-1 {
+    transform: translate(-50%, -110px) scale(0.96);
+    background: #9ca3af;
+    opacity: 0.85;
+    z-index: 3;
+}
+
+.anterior-2 {
+    transform: translate(-50%, -220px) scale(0.92);
+    background: #9ca3af;
+    opacity: 0.6;
+    z-index: 2;
+}
+
+.anterior-3 {
+    transform: translate(-50%, -330px) scale(0.88);
+    background: #9ca3af;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* ========================= */
+/* ===== PRÓXIMOS ===== */
+/* ========================= */
+.proximo-1 {
+    transform: translate(-50%, 110px) scale(0.97);
+    background: #e5e7eb;
+    color: #111827;
+    opacity: 0.95;
+    z-index: 3;
+}
+
+.proximo-2 {
+    transform: translate(-50%, 220px) scale(0.92);
+    background: #9ca3af;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.proximo-3 {
+    transform: translate(-50%, 330px) scale(0.88);
+    background: #9ca3af;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+
+/* ====================================== */
+/* ===== ANIMAÇÃO AO MUDAR HORÁRIO ===== */
+/* ====================================== */
+
+.mudou-horario {
+  animation: troca-horario 0.6s ease-out;
+}
+
+@keyframes troca-horario {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* destaque extra quando vira ATUAL */
+.mudou-horario.atual {
+  animation: vira-atual 0.7s ease-out;
+}
+
+@keyframes vira-atual {
+  0% {
+    transform: translate(-50%, 60px) scale(0.95);
+    box-shadow: none;
+  }
+  60% {
+    transform: translate(-50%, -10px) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, 0) scale(1.03);
+  }
+}
+
+/* ====================================== */
+/* ===== ALERTA VISUAL AO VIRAR ATUAL ==== */
+/* ====================================== */
+
+.atual.alerta {
+  animation: pulso-atual 1.2s ease-in-out 3;
+}
+
+@keyframes pulso-atual {
+  0% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(250, 204, 21, 0.35),
+      0 0 18px rgba(250, 204, 21, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0);
+  }
+}
+
+
+/* ===== ANIMAÇÃO DO PRÓXIMO ===== */
+@keyframes anima-proximo {
+    0% {
+        box-shadow: 0 0 0 rgba(255, 230, 0, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 10px rgba(255, 230, 0, 0.9);
+    }
+
+    100% {
+        box-shadow: 0 0 0 rgba(255, 230, 0, 0);
+    }
+}
