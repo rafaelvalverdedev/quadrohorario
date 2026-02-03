@@ -26,13 +26,13 @@ body {
     position: absolute;
     top: 24px;
     right: 40px;
-    font-size: 64px;
+    font-size: 58px;
     font-weight: 700;
 }
 
 #data-atual {
     position: absolute;
-    top: 90px;
+    top: 80px;
     right: 40px;
     font-size: 24px;
     opacity: 0.75;
