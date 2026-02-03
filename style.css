@@ -11,8 +11,8 @@
 body {
     height: 100vh;
     background: linear-gradient(
-        315deg,
-        #f8f6f1 0%,
+        0deg,
+        #f0e6cd 0%,
         #ffffff 50%,
         #f1efe8 100%
     );
@@ -106,7 +106,7 @@ li {
 /* centro */
 .nome {
     justify-content: center;
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 600;
     white-space: nowrap;
 }
@@ -116,61 +116,64 @@ li {
     justify-content: flex-end;
     font-size: 20px;
     font-weight: 600;
-    opacity: 0.8;
 }
 
 /* ===== LINHA INFERIOR ===== */
 .descricao {
     font-size: 18px;
     text-align: center;
-    opacity: 0.95;
-}
+    }
 
 .obs {
     font-size: 15px;
     text-align: center;
-    opacity: 0.7;
-}
+    }
 
 /* ========================= */
 /* ===== ATUAL ===== */
 /* ========================= */
 .atual {
-    top: 50%;
-    transform: translate(-50%, 0) scale(1.03);
+  position: absolute;
+    transform: translate(-50%, -50%) scale(1);
     width: 90%;
-
+    height: 150px;
     background: #facc15;
-    color: #000000;
+    color: #3a3838;
 
-    z-index: 4;
+    z-index: 100;
 
     box-shadow:
-        0 12px 28px rgba(0, 0, 0, 0.25),
-        0 0 0 4px rgba(250, 204, 21, 0.35);
+        0 5px 10px rgba(0, 0, 0, 0.4),
+        0 2px 0 0 rgba(250, 204, 21, 0.4);
 }
 
 /* ========================= */
 /* ===== ANTERIORES ===== */
 /* ========================= */
 .anterior-1 {
-    transform: translate(-50%, -110px) scale(0.96);
+    transform: translate(-50%, -155px);
+    height: 100px;
     background: #9ca3af;
-    opacity: 0.85;
+    color: #8792aa;
+    opacity: 0.7;
     z-index: 3;
 }
 
 .anterior-2 {
-    transform: translate(-50%, -220px) scale(0.92);
+    transform: translate(-50%, -250px) scale(0.95);
+    height: 95px;
     background: #9ca3af;
-    opacity: 0.6;
+    color: #8792aa;
+    opacity: 0.5;
     z-index: 2;
 }
 
 .anterior-3 {
-    transform: translate(-50%, -330px) scale(0.88);
+    transform: translate(-50%, -342px) scale(0.85);
+    height: 100px;
     background: #9ca3af;
-    opacity: 0.4;
+    opacity: 0.3;
+    color: #8792aa;
     z-index: 1;
 }
 
@@ -178,23 +181,28 @@ li {
 /* ===== PRÓXIMOS ===== */
 /* ========================= */
 .proximo-1 {
-    transform: translate(-50%, 110px) scale(0.97);
-    background: #e5e7eb;
-    color: #111827;
-    opacity: 0.95;
-    z-index: 3;
-}
-
-.proximo-2 {
-    transform: translate(-50%, 220px) scale(0.92);
-    background: #9ca3af;
+    transform: translate(-50%, 65px) scale(1);
+    background: #d8c785;
+    color: #86752d;
     opacity: 0.7;
-    z-index: 2;
-}
-
-.proximo-3 {
-    transform: translate(-50%, 330px) scale(0.88);
+    z-index: 3;
+    animation: anima-proximo 5.5s ease infinite;
+  }
+  
+  .proximo-2 {
+    transform: translate(-50%, 180px) scale(0.95);
+    height: 100px;
     background: #9ca3af;
+    color: #8792aa;
+    opacity: 0.5;
+    z-index: 2;
+  }
+  
+  .proximo-3 {
+    transform: translate(-50%, 275px) scale(0.90);
+    height: 100px;
+    background: #9ca3af;
+    color: #8792aa;
     opacity: 0.5;
     z-index: 1;
 }

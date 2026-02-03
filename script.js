@@ -1,20 +1,29 @@
 const CORES_POR_TIPO = {
-    "MEDICAÇÃO": "#dc2626",      // vermelho
-    "HIDRATAÇÃO": "#2563eb",     // azul
-    "NEBULIZAÇÃO": "#16a34a",    // verde
-    "SINAIS VITAIS": "#ea580c",  // laranja
+    "MEDICACAO": "#ff0000",     
+    "HIDRATACAO": "#2563eb",    
+    "NEBULIZACAO": "#516fd3ff", 
+    "SINAIS VITAIS": "#ea580c", 
+    "DIETA": "#16a34a",
+    "HIGIENE": "#2563eb",
 };
 
 const audioAlerta = new Audio("./alerta.mp3");
-audioAlerta.volume = 0.6;
+audioAlerta.volume = 1;
 
 let ultimoIndiceAtual = null;
 let medicamentos = [];
 
 const lista = document.getElementById("lista");
 
-async function carregarMedicamentos() {
+function normalizarTipo(tipo) {
+    return tipo
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toUpperCase()
+        .trim();
+}
 
+async function carregarMedicamentos() {
     try {
         const response = await fetch("./plano.json");
         medicamentos = await response.json();
@@ -34,13 +43,7 @@ function atualizarQuadro() {
 
     /* ===== RELÓGIO ===== */
     document.getElementById("hora-atual").textContent = horaAtual;
-    document.getElementById("data-atual").textContent =
-        agora.toLocaleDateString("pt-BR", {
-            weekday: "long",
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-        });
+    document.getElementById("data-atual").textContent = agora.toLocaleDateString("pt-BR", {weekday: "long", day: "2-digit", month: "long",year: "numeric",});
 
     /* ===== LIMPA LISTA ===== */
     lista.innerHTML = "";
@@ -49,10 +52,7 @@ function atualizarQuadro() {
     let indiceAtual = medicamentos.findIndex((m) => m.horario >= horaAtual);
 
     // se passou de todos os horários, assume o último
-    if (indiceAtual === -1) {
-        indiceAtual = medicamentos.length - 1;
-    }
-
+    if (indiceAtual === -1) { indiceAtual = medicamentos.length - 1; }
 
     const mudouHorario = indiceAtual !== ultimoIndiceAtual;
 
@@ -62,7 +62,6 @@ function atualizarQuadro() {
     }
 
     ultimoIndiceAtual = indiceAtual;
-
 
     /* ===================================================== */
     /* ===== RENDERIZA COM CICLO INFINITO (-3 a +3) ===== */
@@ -86,7 +85,6 @@ function atualizarQuadro() {
         const tipoNormalizado = normalizarTipo(med.tipo);
 
         cor.style.backgroundColor = CORES_POR_TIPO[tipoNormalizado] || "#6b7280"; // fallback cinza
-
 
         const horario = document.createElement("div");
         horario.className = "horario";
@@ -134,14 +132,6 @@ function atualizarQuadro() {
     }
 }
 
-function normalizarTipo(tipo) {
-    return tipo
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toUpperCase()
-        .trim();
-}
-
-/* ===== ATUALIZA A CADA 5s ===== */
+/* ===== ATUALIZA A CADA 10s ===== */
 setInterval(atualizarQuadro, 10000);
 carregarMedicamentos();
