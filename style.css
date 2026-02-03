@@ -26,13 +26,13 @@ body {
     position: absolute;
     top: 24px;
     right: 40px;
-    font-size: 72px;
+    font-size: 64px;
     font-weight: 700;
 }
 
 #data-atual {
     position: absolute;
-    top: 110px;
+    top: 90px;
     right: 40px;
     font-size: 24px;
     opacity: 0.75;
@@ -172,7 +172,7 @@ li {
     transform: translate(-50%, -342px) scale(0.85);
     height: 100px;
     background: #9ca3af;
-    opacity: 0.3;
+    opacity: 0;
     color: #8792aa;
     z-index: 1;
 }
