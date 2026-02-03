@@ -107,7 +107,7 @@ function atualizarQuadro() {
         // 🔔 alerta geral
         audioAlerta.currentTime = 0;
         audioAlerta.play().catch(() => { });
-        audioAlerta.volume = 1;
+        audioAlerta.volume = 2;
 
         // 🔊 alerta por tipo
         const medAtual = medicamentos[indiceAtual];
