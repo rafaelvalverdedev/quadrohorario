@@ -9,36 +9,37 @@
 
 /* ===== BODY ===== */
 body {
-  height: 100vh;
-  background: linear-gradient(0deg,
-      #bdaf91 0%,
+  background: linear-gradient(-35deg,
+      #cac1ac 0%,
       #ffffff 50%,
       #f1eddb 100%);
   font-family: "Inter", system-ui, sans-serif;
-  overflow: hidden;
   color: #57544b;
 }
 
 /* ===== DATA E HORA ===== */
+#barra-topo {
+  background-color: #d3cdbf;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
 #hora-atual {
-  position: absolute;
-  top: 24px;
-  right: 40px;
   font-size: 58px;
   font-weight: 700;
 }
 
 #data-atual {
-  position: absolute;
-  top: 20px;
-  left: 40px;
   font-size: 24px;
   opacity: 0.75;
 }
 
 /* ===== CONTAINER ===== */
 #container {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,24 +53,9 @@ ul {
 /* ===== ITEM BASE ===== */
 li {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-
-  padding: 16px 10px;
-  border-radius: 16px;
-
-  background: #9ca3af;
-
-  transition:
-    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.6s ease,
-    background-color 0.6s ease,
-    box-shadow 0.6s ease;
+  width: 100%;
+  padding: 20px;
+  list-style: none;
 }
 
 /* ===== LINHA TOPO ===== */
@@ -87,6 +73,73 @@ li {
   align-items: center;
   line-height: 1;
 }
+
+/* ========================= */
+/* ===== ATUAL ===== */
+/* ========================= */
+.atual {
+  position: absolute;
+  width: 90%;
+  height: 150px;
+  transform: translate(5%);
+  background: #a7a195;
+  color: #596272;
+  text-shadow: 0 1px 3px #d3cdbf;
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
+  z-index: 100;
+}
+
+/* ========================= */
+/* ===== ANTERIORES ===== */
+/* ========================= */
+.anterior-1 {
+  top: -82px;
+}
+
+.anterior-2 {
+  top: -164px;
+}
+
+.anterior-3 {
+  top: -246px;
+}
+
+.anterior-1,
+.anterior-2,
+.anterior-3 {
+  position: absolute;
+  width: 70%;
+  height: 80px;
+  background: #d3cdbf;
+  color: #8792aa;
+}
+
+/* ========================= */
+/* ===== PRÓXIMOS ===== */
+/* ========================= */
+.proximo-1 {
+  top: 152px;
+}
+
+.proximo-2 {
+  top: 234px;
+}
+
+.proximo-3 {
+  top: 316px;
+}
+
+.proximo-1,
+.proximo-2,
+.proximo-3 {
+  width: 70%;
+  height: 80px;
+  background: #d3cdbf;
+  color: #8792aa;
+  /* animation: anima-proximo 5.5s ease infinite; */
+}
+
 
 /* esquerda */
 .cor {
@@ -108,7 +161,6 @@ li {
   font-weight: 800;
   white-space: nowrap;
   letter-spacing: 10px;
-  text-shadow: 0 2px 2px #413d32;
 }
 
 /* direita */
@@ -127,84 +179,6 @@ li {
 .obs {
   font-size: 15px;
   text-align: center;
-}
-
-/* ========================= */
-/* ===== ATUAL ===== */
-/* ========================= */
-.atual {
-  position: absolute;
-  transform: translate(-50%, -50%) scale(1);
-  width: 90%;
-  height: 150px;
-  background: #facc15;
-
-  z-index: 100;
-
-  color: #413d32;
-  box-shadow:
-    0 5px 10px rgba(0, 0, 0, 0.4),
-    0 2px 0 0 rgba(250, 204, 21, 0.4);
-}
-
-/* ========================= */
-/* ===== ANTERIORES ===== */
-/* ========================= */
-.anterior-1 {
-  transform: translate(-50%, -155px);
-  height: 100px;
-  background: #9ca3af;
-  color: #8792aa;
-  opacity: 0.7;
-  z-index: 3;
-}
-
-.anterior-2 {
-  transform: translate(-50%, -250px) scale(0.95);
-  height: 95px;
-  background: #9ca3af;
-  color: #8792aa;
-  opacity: 0;
-  z-index: 2;
-}
-
-.anterior-3 {
-  transform: translate(-50%, -342px) scale(0.85);
-  height: 100px;
-  background: #9ca3af;
-  opacity: 0;
-  color: #8792aa;
-  z-index: 1;
-}
-
-/* ========================= */
-/* ===== PRÓXIMOS ===== */
-/* ========================= */
-.proximo-1 {
-  transform: translate(-50%, 75px) scale(1);
-  background: #9b8d56;
-  color: #beb487;
-  opacity: 0.7;
-  z-index: 3;
-  animation: anima-proximo 5.5s ease infinite;
-}
-
-.proximo-2 {
-  transform: translate(-50%, 210px) scale(0.95);
-  height: 100px;
-  background: #9ca3af;
-  color: #8792aa;
-  opacity: 0.5;
-  z-index: 2;
-}
-
-.proximo-3 {
-  transform: translate(-50%, 305px) scale(0.90);
-  height: 100px;
-  background: #9ca3af;
-  color: #8792aa;
-  opacity: 0.5;
-  z-index: 1;
 }
 
 

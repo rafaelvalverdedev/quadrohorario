@@ -1,6 +1,5 @@
 /* ============================= */
-/* ===== CORES POR TIPO ===== */
-/* ============================= */
+/* ===== CORES POR TIPO ======= */
 const CORES_POR_TIPO = {
     "MEDICACAO": "#ff0000",
     "HIDRATACAO": "#2563eb",
@@ -11,13 +10,12 @@ const CORES_POR_TIPO = {
 };
 
 /* ============================= */
-/* ===== ÁUDIOS ===== */
-/* ============================= */
+/* =========== ÁUDIOS ========= */
 
-// 🔔 alerta geral
+// alerta geral
 const audioAlerta = new Audio("./audio/alerta.mp3");
 
-// 🔊 áudios por tipo
+// áudios por tipo
 const AUDIOS_POR_TIPO = {
     "MEDICACAO": new Audio("./audio/medicacao.mp3"),
     "HIDRATACAO": new Audio("./audio/hidratacao.mp3"),
@@ -27,22 +25,16 @@ const AUDIOS_POR_TIPO = {
     "HIGIENE": new Audio("./audio/higiene.mp3"),
 };
 
-// volume padrão
-Object.values(AUDIOS_POR_TIPO).forEach(audio => {
-    audio.volume = 1;
-});
-
 /* ============================= */
-/* ===== VARIÁVEIS ===== */
-/* ============================= */
+/* ========= VARIÁVEIS ======== */
 let ultimoIndiceAtual = null;
 let medicamentos = [];
 
 const lista = document.getElementById("lista");
 
 /* ============================= */
-/* ===== UTIL ===== */
-/* ============================= */
+/* ============ UTIL ========== */
+//  Padronização de tipos: acentos, cedilha, minusculas e maiúscias 
 function normalizarTipo(tipo) {
     return tipo
         .normalize("NFD")
@@ -52,15 +44,17 @@ function normalizarTipo(tipo) {
 }
 
 /* ============================= */
-/* ===== CARREGAR JSON ===== */
-/* ============================= */
+/* ======= CARREGAR JSON ====== */
+
 async function carregarMedicamentos() {
     try {
         const response = await fetch("./plano.json");
         medicamentos = await response.json();
 
         // ordena por horário
-        medicamentos.sort((a, b) => a.horario.localeCompare(b.horario));
+        medicamentos.sort((a, b) => {
+            return horarioParaMinutos(a.horario) - horarioParaMinutos(b.horario);
+        });
 
         atualizarQuadro();
     } catch (erro) {
@@ -70,32 +64,36 @@ async function carregarMedicamentos() {
 
 /* ============================= */
 /* ===== ATUALIZAR QUADRO ===== */
-/* ============================= */
+
 function atualizarQuadro() {
-    const agora = new Date();
-    const horaAtual = agora.toTimeString().slice(0, 5);
-
-    /* ===== RELÓGIO ===== */
-    document.getElementById("hora-atual").textContent = horaAtual;
-    document.getElementById("data-atual").textContent = agora.toLocaleDateString(
-        "pt-BR",
-        {
-            weekday: "long",
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-        }
-    );
-
-    /* ===== LIMPA ===== */
     lista.innerHTML = "";
 
-    /* ===== ÍNDICE ATUAL ===== */
-    let indiceAtual = medicamentos.findIndex(m => m.horario >= horaAtual);
+    const agora = new Date();  // Formato completo
+    const horaAtual = agora.toTimeString().slice(0, 5); // Formato reduzido HH:mm
 
-    if (indiceAtual === -1) {
-        indiceAtual = medicamentos.length - 1;
-    }
+    const dataFormatada = agora.toLocaleDateString("pt-BR", {
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+    });
+
+    const dataComDiaMaiusculo = dataFormatada.replace(
+        /\b([a-zà-ú])/i,
+        letra => letra.toUpperCase()
+    );
+
+    document.getElementById("data-atual").textContent = dataComDiaMaiusculo;
+    document.getElementById("hora-atual").textContent = horaAtual;
+
+    /* ===== ÍNDICE ATUAL ===== */
+    const minutosAgora = agora.getHours() * 60 + agora.getMinutes();
+
+    let indiceAtual = medicamentos.findIndex(m => {
+        return horarioParaMinutos(m.horario) >= minutosAgora;
+    });
+
+    if (indiceAtual === -1) { indiceAtual = 0; }
 
     const mudouHorario = indiceAtual !== ultimoIndiceAtual;
 
@@ -107,7 +105,6 @@ function atualizarQuadro() {
         // 🔔 alerta geral
         audioAlerta.currentTime = 0;
         audioAlerta.play().catch(() => { });
-        audioAlerta.volume = 2;
 
         // 🔊 alerta por tipo
         const medAtual = medicamentos[indiceAtual];
@@ -145,8 +142,7 @@ function atualizarQuadro() {
         cor.className = "cor";
 
         const tipoNormalizado = normalizarTipo(med.tipo);
-        cor.style.backgroundColor =
-            CORES_POR_TIPO[tipoNormalizado] || "#6b7280";
+        cor.style.backgroundColor = CORES_POR_TIPO[tipoNormalizado] || "#6b7280";
 
         const horario = document.createElement("div");
         horario.className = "horario";
@@ -160,7 +156,6 @@ function atualizarQuadro() {
         tipo.className = "tipo";
         tipo.textContent = med.tipo;
 
-        linhaTopo.append(cor, horario, nome, tipo);
 
         /* ===== DESCRIÇÃO ===== */
         const desc = document.createElement("div");
@@ -172,12 +167,19 @@ function atualizarQuadro() {
         obs.className = "obs";
         obs.textContent = med.observacao;
 
-        li.append(linhaTopo, desc, obs);
+        linhaTopo.append(cor, horario, nome, tipo);
+
+        if (offset === 0) {
+            li.append(linhaTopo, desc, obs);
+        } else {
+            li.append(linhaTopo);
+        }
+
 
         /* ===== CLASSES ===== */
         if (offset === 0) {
             li.classList.add("atual");
-            if (mudouHorario) li.classList.add("alerta");
+            // if (mudouHorario) li.classList.add("alerta");
         } else if (offset < 0) {
             li.classList.add(`anterior-${Math.abs(offset)}`);
         } else {
@@ -185,11 +187,18 @@ function atualizarQuadro() {
         }
 
         if (mudouHorario) {
-            li.classList.add("mudou-horario");
+            // li.classList.add("mudou-horario");
         }
 
         lista.appendChild(li);
     }
+}
+
+
+//  Converte horário de texto em numero
+function horarioParaMinutos(horario) {
+    const [h, m] = horario.split(":").map(Number);
+    return h * 60 + m;
 }
 
 /* ============================= */
