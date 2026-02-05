@@ -226,7 +226,7 @@ li {
 /* ====================================== */
 
 .atual.alerta {
-  animation: pulso-atual 1.2s ease-in-out 3;
+  animation: pulso-atual 3.2s ease-in-out 3;
 }
 
 @keyframes pulso-atual {
@@ -236,8 +236,8 @@ li {
 
   50% {
     box-shadow:
-      0 0 0 6px rgba(250, 204, 21, 0.35),
-      0 0 18px rgba(250, 204, 21, 0.9);
+      0 0 0 6px rgba(134, 123, 76, 0.986),
+      0 0 18px rgba(110, 104, 78, 0.9);
   }
 
   100% {

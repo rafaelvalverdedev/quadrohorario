@@ -89,13 +89,17 @@ function atualizarQuadro() {
     /* ===== ÍNDICE ATUAL ===== */
     const minutosAgora = agora.getHours() * 60 + agora.getMinutes();
 
-    let indiceAtual = medicamentos.findIndex(m => {
-        return horarioParaMinutos(m.horario) >= minutosAgora;
-    });
+    let indiceAtual = -1;
 
-    if (indiceAtual === -1) {
-        indiceAtual = medicamentos.length - 1;
+    for (let i = 0; i < medicamentos.length; i++) {
+        if (horarioParaMinutos(medicamentos[i].horario) <= minutosAgora) {
+            indiceAtual = i;
+        } else {
+            break;
+        }
     }
+
+    if (indiceAtual === -1) { indiceAtual = 0; }
 
     const mudouHorario = indiceAtual !== ultimoIndiceAtual;
 
@@ -181,7 +185,7 @@ function atualizarQuadro() {
         /* ===== CLASSES ===== */
         if (offset === 0) {
             li.classList.add("atual");
-            // if (mudouHorario) li.classList.add("alerta");
+            if (mudouHorario) li.classList.add("alerta");
         } else if (offset < 0) {
             li.classList.add(`anterior-${Math.abs(offset)}`);
         } else {
@@ -189,7 +193,7 @@ function atualizarQuadro() {
         }
 
         if (mudouHorario) {
-            // li.classList.add("mudou-horario");
+            li.classList.add("mudou-horario");
         }
 
         lista.appendChild(li);
