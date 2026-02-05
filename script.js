@@ -93,7 +93,9 @@ function atualizarQuadro() {
         return horarioParaMinutos(m.horario) >= minutosAgora;
     });
 
-    if (indiceAtual === -1) { indiceAtual = 0; }
+    if (indiceAtual === -1) {
+        indiceAtual = medicamentos.length - 1;
+    }
 
     const mudouHorario = indiceAtual !== ultimoIndiceAtual;
 
