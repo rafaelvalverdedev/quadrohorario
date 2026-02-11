@@ -1,0 +1,79 @@
+/* ===== LISTA COMPLETA ===== */
+
+#lado-direito {
+  overflow-y: hidden;
+}
+
+#lado-direito h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.item-completo {
+  padding: 8px;
+  border-bottom: 1px solid #d3cdbf;
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  align-items: center;
+  font-size: 14px;
+}
+
+.item-horario {
+  font-weight: 700;
+}
+
+.item-nome {
+  padding: 0 10px;
+}
+
+.item-tipo {
+  font-size: 11px;
+  background-color: antiquewhite;
+  opacity: 1;
+}
+
+
+/* ===== WRAPPER COM ALTURA FIXA ===== */
+#lista-completa-wrapper {
+  height: calc(100vh - 200px);
+  overflow: hidden; /* remove scrollbar */
+  position: relative;
+}
+
+#lista-completa-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+#lista-completa-wrapper {
+  -ms-overflow-style: none;  /* IE e Edge antigo */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* ===== LISTA INTERNA ===== */
+#lista-completa {
+  transition: transform 0.4s ease;
+}
+
+/* ===== BOTÕES ===== */
+.controle-scroll {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.controle-scroll button {
+  flex: 1;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  background: #a7a195;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.controle-scroll button:active {
+  transform: scale(0.95);
+}

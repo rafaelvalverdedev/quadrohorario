@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  background: linear-gradient(-35deg,
+      #cac1ac 0%,
+      #ffffff 50%,
+      #f1eddb 100%);
+  font-family: "Inter", system-ui, sans-serif;
+  color: #57544b;
+  overflow: hidden;
+}
+
+/* ===== MAIN LAYOUT ===== */
+#main-layout {
+  height: 90vh;
+  display: flex;
+  background-image: url("./images/pawel-czerwinski-Slf8QxaFIWw-unsplash.jpg");
+  background-size: cover;
+}
+
+/* ===== DATA E HORA ===== */
+#barra-topo {
+  position: relative;
+  background-color: #d3cdbf;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  transition: 0.2s ease;
+  z-index: 9000;
+}
+
+
+/* ===== LADO ESQUERDO ===== */
+#lado-esquerdo {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ===== LADO DIREITO ===== */
+#lado-direito {
+  width: 35%;
+  background: #e8e4d8;
+  border-left: 2px solid #d3cdbf;
+  padding: 30px;
+}
+
+#nome-atual {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#hora-atual {
+  font-size: 58px;
+  font-weight: 700;
+}
+
+#data-atual {
+  font-size: 24px;
+  opacity: 0.75;
+}
+
+
+ul {
+  width: 100%;
+  position: relative;
+}
+
+/* ===== ITEM BASE ===== */
+li {
+  position: absolute;
+  width: 100%;
+  padding: 20px;
+  list-style: none;
+}
+
+#lista {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 150px;
+  /* altura do item atual */
+}
+
+/* ===== LINHA TOPO ===== */
+.linha-topo {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  height: 50px;
+}
+
+/* alinhar vertical REAL */
+.linha-topo>div {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+/* ========================= */
+/* ===== ATUAL ===== */
+/* ========================= */
+.atual {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  background: #755405ce;
+  color: #cfcdc4;
+  text-shadow: 0 1px 4px #352604;
+  border-radius: 16px;
+  letter-spacing: 5px;
+  z-index: 100;
+
+}
+
+/* ========================= */
+/* ===== ANTERIORES ===== */
+/* ========================= */
+.anterior-1 {
+  top: -82px;
+}
+
+.anterior-2 {
+  top: -164px;
+}
+
+.anterior-3 {
+  top: -246px;
+}
+
+.anterior-4 {
+  top: -328px;
+}
+
+.anterior-5 {
+  top: -410px;
+}
+
+.anterior-1,
+.anterior-2,
+.anterior-3,
+.anterior-4,
+.anterior-5 {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  background: #d3cdbf;
+  color: #8792aa;
+  opacity: 0.5;
+}
+
+/* ========================= */
+/* ===== PRÓXIMOS ===== */
+/* ========================= */
+.proximo-1 {
+  top: 152px;
+}
+
+.proximo-2 {
+  top: 234px;
+}
+
+.proximo-3 {
+  top: 316px;
+}
+
+.proximo-4 {
+  top: 398px;
+}
+
+.proximo-5 {
+  top: 480px;
+}
+
+.proximo-2,
+.proximo-3,
+.proximo-4,
+.proximo-5 {
+  width: 100%;
+  height: 80px;
+  background: #d3cdbf;
+  color: #8792aa;
+  opacity: 0.5;
+}
+
+.proximo-1 {
+  width: 100%;
+  height: 80px;
+  background: #755305a8;
+  color: #000000;
+  text-shadow: 0 1px 4px #352604;
+  letter-spacing: 5px;
+  animation: anima-proximo 5.5s ease infinite;
+}
+
+/* esquerda */
+.cor {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.horario {
+  margin-left: 12px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* centro */
+.nome {
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* direita */
+.tipo {
+  justify-content: flex-end;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ===== LINHA INFERIOR ===== */
+.descricao {
+  font-size: 18px;
+  text-align: center;
+}
+
+.obs {
+  font-size: 15px;
+  text-align: center;
+}
+
+
+/* ====================================== */
+/* ===== ANIMAÇÃO AO MUDAR HORÁRIO ===== */
+/* ====================================== */
+
+.mudou-horario {
+  animation: troca-horario 0.6s ease-out;
+}
+
+@keyframes troca-horario {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* destaque extra quando vira ATUAL */
+.mudou-horario.atual {
+  animation: vira-atual 0.7s ease-out;
+}
+
+@keyframes vira-atual {
+  0% {
+    transform: translate(-50%, 60px) scale(0.95);
+    box-shadow: none;
+  }
+
+  60% {
+    transform: translate(-50%, -10px) scale(1.05);
+  }
+
+  100% {
+    transform: translate(-50%, 0) scale(1.03);
+  }
+}
+
+/* ====================================== */
+/* ===== ALERTA VISUAL AO VIRAR ATUAL ==== */
+/* ====================================== */
+
+.atual.alerta {
+  animation: pulso-atual 3.2s ease-in-out 3;
+}
+
+@keyframes pulso-atual {
+  0% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(235, 194, 11, 0.986),
+      0 0 18px rgba(228, 187, 7, 0.9);
+  }
+
+  100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0);
+  }
+}
+
+
+/* ===== ANIMAÇÃO DO PRÓXIMO ===== */
+@keyframes anima-proximo {
+  0% {
+    box-shadow: 0 2px 0 rgba(95, 74, 4, 0.9);
+  }
+
+  50% {
+    box-shadow: 0 2px 10px rgba(95, 74, 4, 0.9);
+  }
+
+  100% {
+    box-shadow: 0 2px 0 rgba(95, 74, 4, 0.9);
+  }
+}

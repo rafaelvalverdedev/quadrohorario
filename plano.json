@@ -1,248 +1,345 @@
 [
   {
-    "nome": "AMOXILINA",
-    "horario": "21:07",
-    "tipo": "MEDICAÇÃO",
-    "desc": "875MG 12/12 HORAS",
-    "observacao": "-"
-  },
-  {
     "nome": "ÁGUA MINERAL",
-    "horario": "20:42",
+    "horario": "05:00",
     "tipo": "HIDRATAÇÃO",
-    "desc": "250ML",
-    "observacao": "-"
+    "desc": "250ml",
+    "observacao": ""
   },
   {
-    "nome": "LEVOID",
-    "horario": "20:43",
+    "nome": "LEVOID 50",
+    "horario": "05:30",
     "tipo": "MEDICAÇÃO",
     "desc": "1 COMPRIMIDO EM JEJUM",
-    "observacao": "-"
+    "observacao": ""
   },
   {
-    "nome": "KEPRA",
+    "nome": "KEPRA 100mg/ml",
     "horario": "06:00",
     "tipo": "MEDICAÇÃO",
-    "desc": "100GM/ML 10ML 12/12 HORAS",
-    "observacao": "-"
+    "desc": "10ml 12/12 HORAS",
+    "observacao": ""
   },
   {
     "nome": "NEBULIZAÇÃO",
-    "horario": "06:00",
+    "horario": "06:05",
     "tipo": "NEBULIZAÇÃO",
-    "desc": "NEBULIZAÇÃO - ASPIRAÇÃO - ATROVENT 35 GOTAS",
-    "observacao": "-"
+    "desc": "NEBULIZAÇÃO - ASPIRAÇÃO",
+    "observacao": "ATROVENT 35 GOTAS"
   },
   {
     "nome": "SINAIS VITAIS",
-    "horario": "20:50",
+    "horario": "06:10",
     "tipo": "SINAIS VITAIS",
-    "desc": "TEMPERATURA - FREQUENCIA CARDÍACA - PRESSÃO ARTERIAL",
-    "observacao": "FREQUENCIA RESPIRATÓRIA - PULSO - DOR"
+    "desc": "TEMPERATURA - FREQ. CARDÍACA - PRESSÃO ARTERIAL",
+    "observacao": "FREQ. RESPIRATÓRIA - PULSO - DOR"
   },
   {
     "nome": "ATROPINA 1%",
-    "horario": "06:06",
+    "horario": "06:15",
     "tipo": "MEDICAÇÃO",
-    "desc": "5 GOTAS 06/06 HROAS",
-    "observacao": "-"
+    "desc": "5 GOTAS 06/06 HORAS",
+    "observacao": ""
   },
   {
     "nome": "SIMETICONA",
     "horario": "06:30",
     "tipo": "MEDICAÇÃO",
-    "desc": "40 GOTAS - ",
-    "observacao": "-"
+    "desc": "40 GOTAS",
+    "observacao": ""
+  },
+  {
+    "nome": "DOPERIDONA",
+    "horario": "06:32",
+    "tipo": "MEDICAÇÃO",
+    "desc": "10ml",
+    "observacao": ""
   },
   {
     "nome": "VITAMINA",
     "horario": "07:00",
     "tipo": "DIETA",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "",
+    "observacao": ""
   },
   {
-    "nome": "COLÍRIO LACRIFILM",
-    "horario": "07:01",
+    "nome": "COLÍRIO LACRIFILM 5mg/ml",
+    "horario": "07:05",
     "tipo": "MEDICAÇÃO",
-    "desc": "10ML",
-    "observacao": "-"
+    "desc": "10ml",
+    "observacao": "5X AO DIA"
   },
   {
-    "nome": "RILUZOL",
+    "nome": "RILUZOL 50mg",
     "horario": "08:00",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "1 COMPRIMIDO 12/12 HORAS",
+    "observacao": ""
   },
   {
     "nome": "ÁGUA MINERAL",
     "horario": "09:00",
     "tipo": "HIDRATAÇÃO",
     "desc": "250ML",
-    "observacao": "-"
+    "observacao": ""
   },
   {
     "nome": "PROPANTELINA GEL",
-    "horario": "09:01",
+    "horario": "09:02",
     "tipo": "MEDICAÇÃO",
-    "desc": "10ML",
-    "observacao": "-"
+    "desc": "1 SACHÊ (ORELHA) 12/12 HORAS",
+    "observacao": ""
   },
   {
-    "nome": "PREGABALINA",
+    "nome": "PREGABALINA 75mg",
     "horario": "09:30",
     "tipo": "MEDICAÇÃO",
-    "desc": "10ML",
-    "observacao": "-"
+    "desc": "12/12 HORAS",
+    "observacao": ""
   },
   {
     "nome": "SUCO",
     "horario": "10:00",
     "tipo": "DIETA",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "",
+    "observacao": ""
   },
   {
-    "nome": "ELLURA",
+    "nome": "ELLURA 200mg",
     "horario": "10:30",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "1 COMPRIMIDO 1X AO DIA",
+    "observacao": ""
   },
   {
-    "nome": "LECTULONA",
+    "nome": "LECTULONA 667mg/ml",
     "horario": "10:45",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "",
+    "observacao": ""
   },
   {
-    "nome": "FUROSEMIDA",
+    "nome": "FUROSEMIDA 40mg",
     "horario": "11:00",
-    "tipo": "DIETA",
-    "desc": "-",
-    "observacao": "-"
+    "tipo": "MEDICAÇÃO",
+    "desc": "1 COMPRIMIDO 1X AO DIA",
+    "observacao": ""
   },
   {
     "nome": "BANHO",
     "horario": "11:05",
     "tipo": "HIGIENE",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "",
+    "observacao": ""
   },
   {
-    "nome": "COLÍRIO LACRIFILM",
+    "nome": "COLÍRIO LACRIFILM 5mg/ml",
     "horario": "11:20",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "10ml",
+    "observacao": "5X AO DIA"
   },
   {
-    "nome": "ATROPINNA",
+    "nome": "ATROPINNA 1%",
     "horario": "12:00",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "5 GOTAS 06/06 HORAS",
+    "observacao": ""
   },
   {
     "nome": "NEBULIZAÇÃO",
     "horario": "12:05",
-    "tipo": "DIETA",
-    "desc": "-",
-    "observacao": "-"
+    "tipo": "NEBULIZAÇÃO",
+    "desc": "NEBULIZAÇÃO - ASPIRAÇÃO",
+    "observacao": "ATROVENT 35 GOTAS"
   },
   {
     "nome": "SINAIS VITAIS",
     "horario": "12:15",
     "tipo": "SINAIS VITAIS",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "TEMPERATURA - FREQ. CARDÍACA - PRESSÃO ARTERIAL",
+    "observacao": "FREQ. RESPIRATÓRIA - PULSO - DOR"
   },
   {
     "nome": "SIMETICONA",
     "horario": "12:30",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "40 GOTAS",
+    "observacao": ""
+  },
+  {
+    "nome": "DOPERIDONA",
+    "horario": "12:32",
+    "tipo": "MEDICAÇÃO",
+    "desc": "10ml",
+    "observacao": ""
   },
   {
     "nome": "SOPA",
     "horario": "13:00",
     "tipo": "DIETA",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "",
+    "observacao": ""
   },
   {
     "nome": "ÁGUA MINERAL",
     "horario": "14:30",
     "tipo": "HIDRATAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "250ml",
+    "observacao": ""
   },
   {
-    "nome": "COLÍRIO LACRIFILM",
+    "nome": "COLÍRIO LACRIFILM 5mg/ml",
     "horario": "15:00",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
-  },
-  {
-    "nome": "AMOXILINA",
-    "horario": "15:02",
-    "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "10ml",
+    "observacao": "5X AO DIA"
   },
   {
     "nome": "VITAMINA",
     "horario": "16:00",
     "tipo": "DIETA",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "",
+    "observacao": ""
   },
   {
     "nome": "L-SERINA",
     "horario": "17:00",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
-  }
-  ,
+    "desc": "3 SACHÊS",
+    "observacao": ""
+  },
   {
     "nome": "ÁGUA MINERAL",
     "horario": "17:30",
     "tipo": "HIDRATAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "250ml",
+    "observacao": ""
   },
   {
     "nome": "NEBULIZAÇÃO",
     "horario": "18:00",
     "tipo": "NEBULIZAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "NEBULIZAÇÃO - ASPIRAÇÃO",
+    "observacao": "ATROVENT 35 GOTAS"
   },
   {
     "nome": "SINAIS VITAIS",
     "horario": "18:15",
     "tipo": "SINAIS VITAIS",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "TEMPERATURA - FREQ. CARDÍACA - PRESSÃO ARTERIAL",
+    "observacao": "FREQ. RESPIRATÓRIA - PULSO - DOR"
   },
   {
-    "nome": "ATROPINA",
+    "nome": "ATROPINA 1%",
+    "horario": "18:15",
+    "tipo": "MEDICAÇÃO",
+    "desc": "5 GOTAS 06/06 HORAS",
+    "observacao": ""
+  },
+  {
+    "nome": "KEPRA 100mg/ml",
     "horario": "18:20",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
+    "desc": "10ml 12/12 HORAS",
     "observacao": "-"
   },
   {
-    "nome": "KEPRA",
-    "horario": "18:25",
+    "nome": "SIMETICONA",
+    "horario": "18:30",
     "tipo": "MEDICAÇÃO",
-    "desc": "-",
-    "observacao": "-"
+    "desc": "40 GOTAS",
+    "observacao": ""
+  },
+  {
+    "nome": "COLÍRIO LACRIFILM 5mg/ml",
+    "horario": "19:00",
+    "tipo": "MEDICAÇÃO",
+    "desc": "10ml",
+    "observacao": "5X AO DIA"
+  },
+  {
+    "nome": "MINGAU",
+    "horario": "19:00",
+    "tipo": "DIETA",
+    "desc": "",
+    "observacao": ""
+  },
+  {
+    "nome": "RILUZOL 50mg",
+    "horario": "20:00",
+    "tipo": "MEDICAÇÃO",
+    "desc": "1 COMPRIMIDO 12/12 HORAS",
+    "observacao": ""
+  },
+  {
+    "nome": "COLÍRIO LACRIFILM 5mg/ml",
+    "horario": "21:00",
+    "tipo": "MEDICAÇÃO",
+    "desc": "10ml",
+    "observacao": "5X AO DIA"
+  },
+  {
+    "nome": "PROPANTELINA GEL",
+    "horario": "21:05",
+    "tipo": "MEDICAÇÃO",
+    "desc": "1 SACHÊ (ORELHA) 12/12 HORAS",
+    "observacao": ""
+  },
+  {
+    "nome": "PREGABALINA 75mg",
+    "horario": "21:30",
+    "tipo": "MEDICAÇÃO",
+    "desc": "12/12 HORAS",
+    "observacao": ""
+  },
+  {
+    "nome": "SUCO",
+    "horario": "20:00",
+    "tipo": "DIETA",
+    "desc": "",
+    "observacao": ""
+  },
+  {
+    "nome": "SIMFORT 2g",
+    "horario": "20:00",
+    "tipo": "DIETA",
+    "desc": "PROBIÓTICO",
+    "observacao": "1 SACHÊ DILUIDO EM ÁGUA"
+  },
+  {
+    "nome": "LACTULONA",
+    "horario": "22:45",
+    "tipo": "MEDICAÇÃO",
+    "desc": "",
+    "observacao": ""
+  },
+  {
+    "nome": "ATROPINA 1%",
+    "horario": "00:00",
+    "tipo": "MEDICAÇÃO",
+    "desc": "5 GOTAS 06/06 HORAS",
+    "observacao": ""
+  },
+  {
+    "nome": "ÁGUA MINERAL",
+    "horario": "00:03",
+    "tipo": "HIDRATAÇÃO",
+    "desc": "250ml",
+    "observacao": ""
+  },
+  {
+    "nome": "NEBULIZAÇÃO",
+    "horario": "00:05",
+    "tipo": "NEBULIZAÇÃO",
+    "desc": "NEBULIZAÇÃO - ASPIRAÇÃO",
+    "observacao": "ATROVENT 35 GOTAS"
+  },
+  {
+    "nome": "SINAIS VITAIS",
+    "horario": "00:10",
+    "tipo": "SINAIS VITAIS",
+    "desc": "TEMPERATURA - FREQ. CARDÍACA - PRESSÃO ARTERIAL",
+    "observacao": "FREQ. RESPIRATÓRIA - PULSO - DOR"
   }
 ]

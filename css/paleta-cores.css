@@ -1,0 +1,26 @@
+:root {
+  /* Base */
+  --bg-main: #E6E1D6;
+  --bg-surface: #F3EFE6;
+  --bg-card: #FFFFFF;
+
+  /* Destaque dourado */
+  --accent-gold: #B08A3C;
+  --accent-gold-soft: #D6BE8A;
+
+  /* Texto */
+  --text-primary: #2F2F2F;
+  --text-secondary: #6E6E6E;
+  --text-muted: #9A9A9A;
+
+  /* Categorias */
+  --medicacao: #D9534F;     /* vermelho suave */
+  --dieta: #4CAF50;         /* verde equilibrado */
+  --hidratacao: #4A90E2;    /* azul harmonizado */
+  --nebulizacao: #8E7CC3;   /* roxo neutro */
+  --sinais: #F5A623;        /* laranja suave */
+
+  /* Estados */
+  --border-soft: rgba(0,0,0,0.06);
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.08);
+}

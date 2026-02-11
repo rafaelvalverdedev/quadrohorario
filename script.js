@@ -109,8 +109,7 @@ function atualizarQuadro() {
     if (mudouHorario && ultimoIndiceAtual !== null) {
 
         // 🔔 alerta geral
-        audioAlerta.currentTime = 0;
-        audioAlerta.play().catch(() => { });
+        tocarAudioVariasVezes(audioAlerta, 3);
 
         // 🔊 alerta por tipo
         const medAtual = medicamentos[indiceAtual];
@@ -119,8 +118,7 @@ function atualizarQuadro() {
 
         if (audioTipo) {
             setTimeout(() => {
-                audioTipo.currentTime = 0;
-                audioTipo.play().catch(() => { });
+                tocarAudioVariasVezes(audioTipo, 3);
             }, 800);
         }
     }
@@ -128,9 +126,9 @@ function atualizarQuadro() {
     ultimoIndiceAtual = indiceAtual;
 
     /* ============================= */
-    /* ===== RENDERIZA (-3 a +3) ===== */
+    /* ===== RENDERIZA (-5 a +5) ===== */
     /* ============================= */
-    for (let offset = -3; offset <= 3; offset++) {
+    for (let offset = -5; offset <= 5; offset++) {
 
         const index =
             (indiceAtual + offset + medicamentos.length) %
@@ -210,5 +208,5 @@ function horarioParaMinutos(horario) {
 /* ============================= */
 /* ===== LOOP ===== */
 /* ============================= */
-setInterval(atualizarQuadro, 10000);
+setInterval(atualizarQuadro, 20000);
 carregarMedicamentos();

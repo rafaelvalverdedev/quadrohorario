@@ -17,18 +17,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/listagem-completa.css" />
+  <link rel="stylesheet" href="./css/paleta-cores.css" />
 </head>
 
-<div id="barra-topo">
-  <span id="data-atual"></span>
+<!-- TOPO -->
+<header id="barra-topo">
+  <span>
+    <span id="nome-atual">UDACI ALVES VALVERDE</span>
+    <br>
+    <span id="data-atual"></span>
+  </span>
   <span id="hora-atual"></span>
-</div>
+</header>
 
-<div id="container">
-  <ul id="lista"></ul>
-</div>
+<!-- MAIN DIVIDIDO -->
+<main id="main-layout">
+  <section id="lado-esquerdo">
+    <ul id="lista"></ul>
+  </section>
 
+  <section id="lado-direito">
+    <h2>Plano Completo</h2>
+
+    <div class="controle-scroll">
+      <button id="btn-up">▲</button>
+      <button id="btn-down">▼</button>
+    </div>
+
+    <div id="lista-completa-wrapper">
+      <div id="lista-completa"></div>
+    </div>
+  </section>
+</main>
+
+<script src="audio-utils.js" defer></script>
 <script src="script.js" defer></script>
+<script src="lista-completa.js" defer></script>
+
 
 </html>
