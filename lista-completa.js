@@ -4,24 +4,33 @@
 
 let scrollIndex = 0;
 let totalItens = 0;
+let planoGlobal = [];
 
 async function carregarListaCompleta() {
     try {
-        const response = await fetch("./plano.json");
-        let dados = await response.json();
+        const response = await fetch(`./plano.json?v=${Date.now()}`);
+        planoGlobal = await response.json();
 
-        dados.sort((a, b) => {
+        planoGlobal.sort((a, b) => {
             return horarioParaMinutos(a.horario) - horarioParaMinutos(b.horario);
         });
 
-        totalItens = dados.length;
-        renderizarListaCompleta(dados);
+        totalItens = planoGlobal.length;
+
+        renderizarListaCompleta(planoGlobal);
+
+        // 🔥 chama atualização do quadro principal
+        if (typeof atualizarQuadroPrincipal === "function") {
+            atualizarQuadroPrincipal(planoGlobal);
+        }
+
         configurarBotoes();
 
     } catch (erro) {
         console.error("Erro ao carregar lista completa:", erro);
     }
 }
+
 
 function renderizarListaCompleta(lista) {
 

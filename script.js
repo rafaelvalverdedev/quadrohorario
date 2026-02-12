@@ -1,11 +1,11 @@
 /* ============================= */
 /* ===== CORES POR TIPO ======= */
 const CORES_POR_TIPO = {
-    "MEDICACAO": "#ff0000",
-    "HIDRATACAO": "#2563eb",
-    "NEBULIZACAO": "#516fd3",
-    "SINAIS VITAIS": "#ea580c",
-    "DIETA": "#16a34a",
+    "MEDICACAO": "#D9534F",
+    "HIDRATACAO": "#4A90E2",
+    "NEBULIZACAO": "#8E7CC3",
+    "SINAIS VITAIS": "#F5A623",
+    "DIETA": "#4CAF50",
     "HIGIENE": "#0ea5e9",
 };
 
@@ -27,8 +27,26 @@ const AUDIOS_POR_TIPO = {
 
 /* ============================= */
 /* ========= VARIÁVEIS ======== */
+
+let audioLiberado = false;
 let ultimoIndiceAtual = null;
 let medicamentos = [];
+
+function liberarAudio() {
+    if (audioLiberado) return;
+
+    audioAlerta.play().then(() => {
+        audioAlerta.pause();
+        audioAlerta.currentTime = 0;
+        audioLiberado = true;
+        console.log("Áudio liberado");
+    }).catch(() => { });
+}
+
+window.addEventListener("click", liberarAudio, { once: true });
+window.addEventListener("touchstart", liberarAudio, { once: true });
+
+
 
 const lista = document.getElementById("lista");
 
@@ -46,20 +64,9 @@ function normalizarTipo(tipo) {
 /* ============================= */
 /* ======= CARREGAR JSON ====== */
 
-async function carregarMedicamentos() {
-    try {
-        const response = await fetch("./plano.json");
-        medicamentos = await response.json();
-
-        // ordena por horário
-        medicamentos.sort((a, b) => {
-            return horarioParaMinutos(a.horario) - horarioParaMinutos(b.horario);
-        });
-
-        atualizarQuadro();
-    } catch (erro) {
-        console.error("Erro ao carregar plano:", erro);
-    }
+function atualizarQuadroPrincipal(dados) {
+    medicamentos = dados;
+    atualizarQuadro();
 }
 
 /* ============================= */
@@ -209,5 +216,5 @@ function horarioParaMinutos(horario) {
 /* ============================= */
 /* ===== LOOP ===== */
 /* ============================= */
+
 setInterval(atualizarQuadro, 20000);
-carregarMedicamentos();
