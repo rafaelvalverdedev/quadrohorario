@@ -22,8 +22,6 @@ body {
 #main-layout {
   height: 90vh;
   display: flex;
-  background-image: url("./images/pawel-czerwinski-Slf8QxaFIWw-unsplash.jpg");
-  background-size: cover;
 }
 
 /* ===== DATA E HORA ===== */
@@ -36,9 +34,9 @@ body {
   justify-content: space-between;
   padding: 0 40px;
   transition: 0.2s ease;
+  border-bottom: 1px solid #bbb29c;
   z-index: 9000;
 }
-
 
 /* ===== LADO ESQUERDO ===== */
 #lado-esquerdo {
@@ -52,7 +50,7 @@ body {
 /* ===== LADO DIREITO ===== */
 #lado-direito {
   width: 35%;
-  background: #e8e4d8;
+  background: #eeebe2;
   border-left: 2px solid #d3cdbf;
   padding: 30px;
 }
@@ -71,7 +69,6 @@ body {
   font-size: 24px;
   opacity: 0.75;
 }
-
 
 ul {
   width: 100%;
@@ -117,10 +114,15 @@ li {
   position: absolute;
   width: 100%;
   height: 150px;
-  background: #755405ce;
+  /* background: #755405ce; */
+
+  background: linear-gradient(90deg,
+      #795d1c 0%,
+      #a37407ea 100%);
+
+
   color: #cfcdc4;
   text-shadow: 0 1px 4px #352604;
-  border-radius: 16px;
   letter-spacing: 5px;
   z-index: 100;
 
@@ -158,7 +160,7 @@ li {
   width: 100%;
   height: 80px;
   background: #d3cdbf;
-  color: #8792aa;
+  color: #aaa887;
   opacity: 0.5;
 }
 
@@ -185,6 +187,7 @@ li {
   top: 480px;
 }
 
+.proximo-1,
 .proximo-2,
 .proximo-3,
 .proximo-4,
@@ -192,19 +195,10 @@ li {
   width: 100%;
   height: 80px;
   background: #d3cdbf;
-  color: #8792aa;
+  color: #aaa887;
   opacity: 0.5;
 }
 
-.proximo-1 {
-  width: 100%;
-  height: 80px;
-  background: #755305a8;
-  color: #000000;
-  text-shadow: 0 1px 4px #352604;
-  letter-spacing: 5px;
-  animation: anima-proximo 5.5s ease infinite;
-}
 
 /* esquerda */
 .cor {
@@ -215,7 +209,7 @@ li {
 
 .horario {
   margin-left: 12px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
 }
 
@@ -230,7 +224,9 @@ li {
 /* direita */
 .tipo {
   justify-content: flex-end;
-  font-size: 20px;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 25px;
   font-weight: 600;
 }
 

@@ -108,9 +108,6 @@ function atualizarQuadro() {
     /* ============================= */
     if (mudouHorario && ultimoIndiceAtual !== null) {
 
-        // 🔔 alerta geral
-        tocarAudioVariasVezes(audioAlerta, 3);
-
         // 🔊 alerta por tipo
         const medAtual = medicamentos[indiceAtual];
         const tipoNormalizado = normalizarTipo(medAtual.tipo);
@@ -118,7 +115,8 @@ function atualizarQuadro() {
 
         if (audioTipo) {
             setTimeout(() => {
-                tocarAudioVariasVezes(audioTipo, 3);
+                audioTipo.currentTime = 0;
+                audioTipo.play().catch(() => { });
             }, 800);
         }
     }
@@ -158,6 +156,9 @@ function atualizarQuadro() {
 
         const tipo = document.createElement("div");
         tipo.className = "tipo";
+        if (offset === 0) {
+            tipo.style.backgroundColor = CORES_POR_TIPO[tipoNormalizado];
+        }
         tipo.textContent = med.tipo;
 
 

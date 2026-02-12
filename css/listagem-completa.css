@@ -20,24 +20,25 @@
 }
 
 .item-horario {
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .item-nome {
   padding: 0 10px;
+  font-weight: 600;
 }
 
 .item-tipo {
-  font-size: 11px;
   background-color: antiquewhite;
-  opacity: 1;
+  padding: 5px;
+  border-radius: 8px;
 }
-
 
 /* ===== WRAPPER COM ALTURA FIXA ===== */
 #lista-completa-wrapper {
   height: calc(100vh - 200px);
-  overflow: hidden; /* remove scrollbar */
+  overflow: hidden;
+  /* remove scrollbar */
   position: relative;
 }
 
@@ -46,8 +47,10 @@
 }
 
 #lista-completa-wrapper {
-  -ms-overflow-style: none;  /* IE e Edge antigo */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  /* IE e Edge antigo */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* ===== LISTA INTERNA ===== */
@@ -59,13 +62,13 @@
 .controle-scroll {
   display: flex;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .controle-scroll button {
   flex: 1;
   padding: 10px;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: bold;
   border: none;
   background: #a7a195;
