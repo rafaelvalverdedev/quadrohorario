@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
 /* ===== RESET ===== */
 * {
@@ -160,6 +161,7 @@ li {
   width: 100%;
   height: 80px;
   background: #d3cdbf;
+  border-bottom: 1px solid #afa99c;
   color: #aaa887;
   opacity: 0.5;
 }
@@ -169,6 +171,12 @@ li {
 /* ========================= */
 .proximo-1 {
   top: 152px;
+  width: 100%;
+  height: 80px;
+  background: #88847b;
+  border-bottom: 1px solid #46433c;
+  color: #42412d;
+  opacity: 0.7;
 }
 
 .proximo-2 {
@@ -187,7 +195,7 @@ li {
   top: 480px;
 }
 
-.proximo-1,
+
 .proximo-2,
 .proximo-3,
 .proximo-4,
@@ -195,6 +203,7 @@ li {
   width: 100%;
   height: 80px;
   background: #d3cdbf;
+  border-bottom: 1px solid #afa99c;
   color: #aaa887;
   opacity: 0.5;
 }
@@ -211,7 +220,7 @@ li {
   margin-left: 12px;
   font-size: 25px;
   font-weight: 700;
-    letter-spacing: 1px;
+  letter-spacing: 1px;
 }
 
 /* centro */
@@ -246,66 +255,28 @@ li {
 /* ====================================== */
 /* ===== ANIMAÇÃO AO MUDAR HORÁRIO ===== */
 /* ====================================== */
-
-.mudou-horario {
-  animation: troca-horario 0.6s ease-out;
-}
-
-@keyframes troca-horario {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* destaque extra quando vira ATUAL */
-.mudou-horario.atual {
-  animation: vira-atual 0.7s ease-out;
-}
-
-@keyframes vira-atual {
-  0% {
-    transform: translate(-50%, 60px) scale(0.95);
-    box-shadow: none;
-  }
-
-  60% {
-    transform: translate(-50%, -10px) scale(1.05);
-  }
-
-  100% {
-    transform: translate(-50%, 0) scale(1.03);
-  }
-}
-
-/* ====================================== */
-/* ===== ALERTA VISUAL AO VIRAR ATUAL ==== */
-/* ====================================== */
-
 .atual.alerta {
-  animation: pulso-atual 3.2s ease-in-out 3;
+  animation:
+    slideInLeft 3.2s ease-in-out,
+    pulso-atual 3.2s ease-in-out 5 2s forwards;
+
+  animation-duration: 1s;
 }
 
 @keyframes pulso-atual {
   0% {
-    box-shadow: 0 0 0 rgba(250, 204, 21, 0);
+    box-shadow: 0 0 0 #a37407ea;
   }
 
   50% {
     box-shadow:
-      0 0 0 6px rgba(235, 194, 11, 0.986),
-      0 0 18px rgba(228, 187, 7, 0.9);
+      0 0 18px #a37407ea;
   }
 
   100% {
-    box-shadow: 0 0 0 rgba(250, 204, 21, 0);
+    box-shadow: 0 0 0 #a37407ea;
   }
 }
-
 
 /* ===== ANIMAÇÃO DO PRÓXIMO ===== */
 @keyframes anima-proximo {

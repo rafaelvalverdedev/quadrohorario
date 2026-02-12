@@ -199,8 +199,10 @@ function atualizarQuadro() {
         }
 
         if (mudouHorario) {
-            li.classList.add("mudou-horario");
+            li.classList.add("alerta");
         }
+console.log(offset);
+console.log(mudouHorario);
 
         lista.appendChild(li);
     }
