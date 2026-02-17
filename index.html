@@ -37,7 +37,7 @@
   loop 
   playsinline
   preload="auto"
-  width=180
+  width=80
 >
   <source src="./audio/4434150-hd_1080_1920_30fps.mp4" type="video/mp4">
   </video>
@@ -64,7 +64,14 @@
     </div>
   </section>
 </main>
-
+  
+<script>
+  window.addEventListener("load", () => {
+  const video = document.getElementById("keepAlive");
+  video.play().catch(console.error);
+});
+</script>
+  
 <script src="script.js" defer></script>
 <script src="lista-completa.js" defer></script>
 
