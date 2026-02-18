@@ -29,19 +29,7 @@
     <br>
     <span id="data-atual"></span>
   </span>
-  
-<video 
-  id="keepAlive"
-  autoplay 
-  muted 
-  loop 
-  playsinline
-  preload="auto"
-  width=80
->
-  <source src="./audio/854002-hd_1920_1080_24fps.mp4" type="video/mp4">
-  </video>
-  
+
   <span id="hora-atual"></span>
 </header>
 
@@ -64,15 +52,17 @@
     </div>
   </section>
 </main>
-  
-<script>
-  window.addEventListener("load", () => {
-  const video = document.getElementById("keepAlive");
-  video.play().catch(console.error);
-});
-</script>
-  
+
 <script src="script.js" defer></script>
 <script src="lista-completa.js" defer></script>
+
+<script>
+  setInterval(() => {
+    document.body.style.opacity = "0.999";
+    setTimeout(() => {
+      document.body.style.opacity = "1";
+    }, 50);
+  }, 30000);
+</script>
 
 </html>

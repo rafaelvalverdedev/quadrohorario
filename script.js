@@ -12,10 +12,8 @@ const CORES_POR_TIPO = {
 /* ============================= */
 /* =========== ÁUDIOS ========= */
 
-// alerta geral
 const audioAlerta = new Audio("./audio/alerta.mp3");
 
-// áudios por tipo
 const AUDIOS_POR_TIPO = {
     "MEDICACAO": new Audio("./audio/medicacao.mp3"),
     "HIDRATACAO": new Audio("./audio/hidratacao.mp3"),
@@ -32,6 +30,11 @@ let audioLiberado = false;
 let ultimoIndiceAtual = null;
 let medicamentos = [];
 
+const lista = document.getElementById("lista");
+
+/* ============================= */
+/* ===== LIBERAR ÁUDIO ======== */
+
 function liberarAudio() {
     if (audioLiberado) return;
 
@@ -39,20 +42,15 @@ function liberarAudio() {
         audioAlerta.pause();
         audioAlerta.currentTime = 0;
         audioLiberado = true;
-        console.log("Áudio liberado");
-    }).catch(() => { });
+    }).catch(() => {});
 }
 
 window.addEventListener("click", liberarAudio, { once: true });
 window.addEventListener("touchstart", liberarAudio, { once: true });
 
-
-
-const lista = document.getElementById("lista");
-
 /* ============================= */
-/* ============ UTIL ========== */
-//  Padronização de tipos: acentos, cedilha, minusculas e maiúscias 
+/* ========= UTILIDADES ======= */
+
 function normalizarTipo(tipo) {
     return tipo
         .normalize("NFD")
@@ -61,8 +59,34 @@ function normalizarTipo(tipo) {
         .trim();
 }
 
+function horarioParaMinutos(horario) {
+    const [h, m] = horario.split(":").map(Number);
+    return h * 60 + m;
+}
+
 /* ============================= */
-/* ======= CARREGAR JSON ====== */
+/* ===== LÓGICA CICLO 24H ===== */
+
+function obterIndiceAtual(listaMedicamentos) {
+    const agora = new Date();
+    const minutosAgora = agora.getHours() * 60 + agora.getMinutes();
+
+    const minutosLista = listaMedicamentos.map(m =>
+        horarioParaMinutos(m.horario)
+    );
+
+    for (let i = 0; i < minutosLista.length; i++) {
+        if (minutosLista[i] > minutosAgora) {
+            return i - 1 >= 0 ? i - 1 : minutosLista.length - 1;
+        }
+    }
+
+    // Se passou do último horário do dia
+    return minutosLista.length - 1;
+}
+
+/* ============================= */
+/* ===== CARREGAR DADOS ======= */
 
 function atualizarQuadroPrincipal(dados) {
     medicamentos = dados;
@@ -73,10 +97,11 @@ function atualizarQuadroPrincipal(dados) {
 /* ===== ATUALIZAR QUADRO ===== */
 
 function atualizarQuadro() {
-    lista.innerHTML = "";
 
-    const agora = new Date();  // Formato completo
-    const horaAtual = agora.toTimeString().slice(0, 5); // Formato reduzido HH:mm
+    if (!medicamentos.length) return;
+
+    const agora = new Date();
+    const horaAtual = agora.toTimeString().slice(0, 5);
 
     const dataFormatada = agora.toLocaleDateString("pt-BR", {
         weekday: "long",
@@ -93,29 +118,18 @@ function atualizarQuadro() {
     document.getElementById("data-atual").textContent = dataComDiaMaiusculo;
     document.getElementById("hora-atual").textContent = horaAtual;
 
-    /* ===== ÍNDICE ATUAL ===== */
-    const minutosAgora = agora.getHours() * 60 + agora.getMinutes();
-
-    let indiceAtual = -1;
-
-    for (let i = 0; i < medicamentos.length; i++) {
-        if (horarioParaMinutos(medicamentos[i].horario) <= minutosAgora) {
-            indiceAtual = i;
-        } else {
-            break;
-        }
-    }
-
-    if (indiceAtual === -1) { indiceAtual = 0; }
+    const indiceAtual = obterIndiceAtual(medicamentos);
 
     const mudouHorario = indiceAtual !== ultimoIndiceAtual;
+    if (!mudouHorario) return;
+
+    lista.innerHTML = "";
 
     /* ============================= */
-    /* ===== ALERTAS SONOROS ===== */
+    /* ===== ALERTA SONORO ========= */
     /* ============================= */
-    if (mudouHorario && ultimoIndiceAtual !== null) {
 
-        // 🔊 alerta por tipo
+    if (ultimoIndiceAtual !== null) {
         const medAtual = medicamentos[indiceAtual];
         const tipoNormalizado = normalizarTipo(medAtual.tipo);
         const audioTipo = AUDIOS_POR_TIPO[tipoNormalizado];
@@ -123,7 +137,7 @@ function atualizarQuadro() {
         if (audioTipo) {
             setTimeout(() => {
                 audioTipo.currentTime = 0;
-                audioTipo.play().catch(() => { });
+                audioTipo.play().catch(() => {});
             }, 800);
         }
     }
@@ -131,8 +145,9 @@ function atualizarQuadro() {
     ultimoIndiceAtual = indiceAtual;
 
     /* ============================= */
-    /* ===== RENDERIZA (-5 a +5) ===== */
+    /* ===== RENDERIZAÇÃO ========= */
     /* ============================= */
+
     for (let offset = -5; offset <= 5; offset++) {
 
         const index =
@@ -143,7 +158,6 @@ function atualizarQuadro() {
 
         const li = document.createElement("li");
 
-        /* ===== TOPO ===== */
         const linhaTopo = document.createElement("div");
         linhaTopo.className = "linha-topo";
 
@@ -151,7 +165,8 @@ function atualizarQuadro() {
         cor.className = "cor";
 
         const tipoNormalizado = normalizarTipo(med.tipo);
-        cor.style.backgroundColor = CORES_POR_TIPO[tipoNormalizado] || "#6b7280";
+        cor.style.backgroundColor =
+            CORES_POR_TIPO[tipoNormalizado] || "#6b7280";
 
         const horario = document.createElement("div");
         horario.className = "horario";
@@ -163,18 +178,16 @@ function atualizarQuadro() {
 
         const tipo = document.createElement("div");
         tipo.className = "tipo";
+        tipo.textContent = med.tipo;
+
         if (offset === 0) {
             tipo.style.backgroundColor = CORES_POR_TIPO[tipoNormalizado];
         }
-        tipo.textContent = med.tipo;
 
-
-        /* ===== DESCRIÇÃO ===== */
         const desc = document.createElement("div");
         desc.className = "descricao";
         desc.textContent = med.desc;
 
-        /* ===== OBS ===== */
         const obs = document.createElement("div");
         obs.className = "obs";
         obs.textContent = med.observacao;
@@ -187,36 +200,33 @@ function atualizarQuadro() {
             li.append(linhaTopo);
         }
 
-
-        /* ===== CLASSES ===== */
         if (offset === 0) {
-            li.classList.add("atual");
-            if (mudouHorario) li.classList.add("alerta");
+            li.classList.add("atual", "alerta");
         } else if (offset < 0) {
             li.classList.add(`anterior-${Math.abs(offset)}`);
         } else {
             li.classList.add(`proximo-${offset}`);
         }
 
-        if (mudouHorario) {
-            li.classList.add("alerta");
-        }
-console.log(offset);
-console.log(mudouHorario);
-
         lista.appendChild(li);
     }
 }
 
+/* ============================= */
+/* ===== LOOP PRECISO ========= */
+/* ============================= */
 
-//  Converte horário de texto em numero
-function horarioParaMinutos(horario) {
-    const [h, m] = horario.split(":").map(Number);
-    return h * 60 + m;
+function iniciarLoopPreciso() {
+
+    atualizarQuadro();
+
+    const agora = new Date();
+    const segundosRestantes = 60 - agora.getSeconds();
+
+    setTimeout(() => {
+        atualizarQuadro();
+        setInterval(atualizarQuadro, 60000);
+    }, segundosRestantes * 1000);
 }
 
-/* ============================= */
-/* ===== LOOP ===== */
-/* ============================= */
-
-setInterval(atualizarQuadro, 20000);
+iniciarLoopPreciso();

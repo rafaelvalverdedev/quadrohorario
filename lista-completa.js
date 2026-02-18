@@ -8,7 +8,7 @@ let planoGlobal = [];
 
 async function carregarListaCompleta() {
     try {
-        const response = await fetch(`./plano.json?v=${Date.now()}`);
+        const response = await fetch("./plano.json", { cache: "no-store" });
         planoGlobal = await response.json();
 
         planoGlobal.sort((a, b) => {
