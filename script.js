@@ -42,7 +42,7 @@ function liberarAudio() {
         audioAlerta.pause();
         audioAlerta.currentTime = 0;
         audioLiberado = true;
-    }).catch(() => {});
+    }).catch(() => { });
 }
 
 window.addEventListener("click", liberarAudio, { once: true });
@@ -137,7 +137,7 @@ function atualizarQuadro() {
         if (audioTipo) {
             setTimeout(() => {
                 audioTipo.currentTime = 0;
-                audioTipo.play().catch(() => {});
+                audioTipo.play().catch(() => { });
             }, 800);
         }
     }
@@ -150,12 +150,8 @@ function atualizarQuadro() {
 
     for (let offset = -5; offset <= 5; offset++) {
 
-        const index =
-            (indiceAtual + offset + medicamentos.length) %
-            medicamentos.length;
-
+        const index = (indiceAtual + offset + medicamentos.length) % medicamentos.length;
         const med = medicamentos[index];
-
         const li = document.createElement("li");
 
         const linhaTopo = document.createElement("div");
@@ -165,8 +161,7 @@ function atualizarQuadro() {
         cor.className = "cor";
 
         const tipoNormalizado = normalizarTipo(med.tipo);
-        cor.style.backgroundColor =
-            CORES_POR_TIPO[tipoNormalizado] || "#6b7280";
+        cor.style.backgroundColor = CORES_POR_TIPO[tipoNormalizado] || "#6b7280";
 
         const horario = document.createElement("div");
         horario.className = "horario";
