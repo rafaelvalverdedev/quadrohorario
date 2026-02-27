@@ -22,13 +22,23 @@ body {
 /* ===== FRAME DO VIDEO LAYOUT ===== */
 .video-container {
   position: absolute;
-  top: 0;
-  right: 300px;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+
+  mix-blend-mode: screen;
+
+}
+
+#barra-topo>span,
+#hora-atual {
+  position: relative;
+  z-index: 10;
 }
 
 /* ===== MAIN LAYOUT ===== */
 #main-layout {
-  height: 80vh;
+  height: 85vh;
   display: flex;
 }
 
@@ -36,13 +46,14 @@ body {
 #barra-topo {
   position: relative;
   background-color: #d3cdbf;
-  height: 20vh;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
   transition: 0.2s ease;
   border-bottom: 1px solid #bbb29c;
+  overflow: hidden;
   z-index: 9000;
 }
 
@@ -64,6 +75,7 @@ body {
 }
 
 #nome-atual {
+  z-index: 10000;
   font-size: 30px;
   font-weight: 700;
 }
