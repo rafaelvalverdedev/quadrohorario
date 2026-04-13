@@ -267,7 +267,7 @@
   },
   {
     "nome": "RILUZOL 50mg",
-    "horario": "20:00",
+    "horario": "20:01",
     "tipo": "MEDICAÇÃO",
     "desc": "1 COMPRIMIDO 12/12 HORAS",
     "observacao": ""
@@ -295,7 +295,7 @@
   },
   {
     "nome": "SUCO",
-    "horario": "20:00",
+    "horario": "20:02",
     "tipo": "DIETA",
     "desc": "",
     "observacao": ""

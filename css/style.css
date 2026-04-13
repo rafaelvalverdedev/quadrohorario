@@ -19,17 +19,6 @@ body {
   overflow: hidden;
 }
 
-/* ===== FRAME DO VIDEO LAYOUT ===== */
-.video-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 1;
-
-  mix-blend-mode: screen;
-
-}
-
 #barra-topo>span,
 #hora-atual {
   position: relative;

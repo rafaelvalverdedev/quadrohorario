@@ -14,55 +14,58 @@
       <meta property="og:site_name" content="ECC SERRINHA"> -->
 
   <!-- Fonte elegante -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/listagem-completa.css" />
+  <link rel="stylesheet" href="./css/lista-completa.css" />
   <link rel="stylesheet" href="./css/paleta-cores.css" />
 </head>
 
-<!-- TOPO -->
-<header id="barra-topo">
-  <span>
-    <span id="nome-atual">UDACI ALVES VALVERDE</span>
-    <br>
-    <span id="data-atual"></span>
-  </span>
+<body>
 
-  <span id="hora-atual"></span>
+  <video autoplay muted loop playsinline style="position:fixed;width:1px;height:1px;opacity:0;">
+    <source src="./assets/blank.mp4" type="video/mp4">
+  </video>
 
-  <div class="video-container">
-    <iframe class="ifreme" width="350" height="188"
-      src="https://www.youtube.com/embed/CVmuzJq0u20?controls=0&loop=1&playlist=CVmuzJq0u20" title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
+  <!-- TOPO -->
+  <header id="barra-topo">
+    <span>
+      <span id="nome-atual">UDACI ALVES VALVERDE</span>
+      <br>
+      <span id="data-atual"></span>
+    </span>
 
-</header>
+    <span id="hora-atual"></span>
 
-<!-- MAIN DIVIDIDO -->
-<main id="main-layout">
-  <section id="lado-esquerdo">
-    <ul id="lista"></ul>
-  </section>
+  </header>
 
-  <section id="lado-direito">
-    <h2>Plano Completo</h2>
+  <!-- MAIN DIVIDIDO -->
+  <main id="main-layout">
+    <section id="lado-esquerdo">
+      <ul id="lista"></ul>
+    </section>
 
-    <div class="controle-scroll">
-      <button id="btn-up">▲</button>
-      <button id="btn-down">▼</button>
-    </div>
+    <section id="lado-direito">
+      <h2>Plano Completo</h2>
 
-    <div id="lista-completa-wrapper">
-      <div id="lista-completa"></div>
-    </div>
-  </section>
-</main>
+      <div class="controle-scroll">
+        <button id="btn-up">▲</button>
+        <button id="btn-down">▼</button>
+      </div>
 
-<script src="script.js" defer></script>
-<script src="lista-completa.js" defer></script>
+      <div id="lista-completa-wrapper">
+        <div id="lista-completa"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/webos.js" defer></script>
+  <script src="./js/keep-alive.js" defer></script>
+  <script src="./js/script.js" defer></script>
+  <script src="./js/lista-completa.js" defer></script>
+
+</body>
+
 
 </html>

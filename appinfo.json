@@ -1,0 +1,14 @@
+{
+  "id": "com.rafael.quadro",
+  "version": "1.0.0",
+  "vendor": "Rafael",
+  "type": "web",
+  "main": "index.html",
+  "title": "Quadro de Horários",
+  "icon": "assets/icon.png",
+  "requiredPermissions": [
+    "time.query",
+    "power",
+    "network.access"
+  ]
+}
