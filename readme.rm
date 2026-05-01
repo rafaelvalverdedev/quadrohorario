@@ -1,0 +1,7 @@
+ares-package .
+
+ares-install --device minha-tv com.rafael.quadro_1.0.0_all.ipk
+
+ares-launch --device minha-tv com.rafael.quadro
+
+ares-install --device minha-tv --remove com.rafael.quadro
