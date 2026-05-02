@@ -6,25 +6,42 @@
   <title>Quadro de Medicação/Alimentação</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- <meta property="og:type" content="website">
-      <meta property="og:title" content="ECC Serrinha 2026">
-      <meta property="og:description" content="Encontro de Casais com Cristo das Igrejas Batistas de Serrinha">
-      <meta property="og:image" content="https://eccserrinha.vercel.app/preview-natal.jpg">
-      <meta property="og:url" content="https://eccserrinha.vercel.app">
-      <meta property="og:site_name" content="ECC SERRINHA"> -->
-
-  <!-- Fonte elegante -->
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Gemstones&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="stylesheet" href="./css/lista-completa.css" />
   <link rel="stylesheet" href="./css/paleta-cores.css" />
+
+  <!-- 🔥 ANTI SCREEN SAVER CSS -->
+  <style>
+    body {
+      animation: antiBurnIn 60s infinite linear;
+    }
+
+    @keyframes antiBurnIn {
+      0% {
+        transform: translate(0px, 0px);
+      }
+
+      25% {
+        transform: translate(1px, 0px);
+      }
+
+      50% {
+        transform: translate(1px, 1px);
+      }
+
+      75% {
+        transform: translate(0px, 1px);
+      }
+
+      100% {
+        transform: translate(0px, 0px);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- TOPO -->
   <header id="barra-topo">
     <span>
       <span id="nome-atual">UDACI ALVES VALVERDE</span>
@@ -33,10 +50,8 @@
     </span>
 
     <span id="hora-atual"></span>
-
   </header>
 
-  <!-- MAIN DIVIDIDO -->
   <main id="main-layout">
     <section id="lado-esquerdo">
       <ul id="lista"></ul>
@@ -58,10 +73,11 @@
 
   <script src="./js/webos.js" defer></script>
   <script src="./js/keep-alive.js" defer></script>
+  <script src="./js/anti-burnin.js" defer></script> <!-- NOVO -->
   <script src="./js/script.js" defer></script>
   <script src="./js/lista-completa.js" defer></script>
-
+  <script src="./js/anti-burnin-pro.js" defer></script>
+  
 </body>
-
 
 </html>

@@ -4,25 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("Rodando em WebOS");
 
-        // Desativa screensaver
+        // ⚠️ tentativa (nem sempre funciona)
         webOS.service.request("luna://com.webos.service.tvpower/power", {
             method: "setScreenSaver",
             parameters: {
                 enable: false
-            },
-            onSuccess: () => console.log("Screensaver OFF"),
-            onFailure: (err) => console.error(err)
+            }
         });
 
-        // Mantém app ativo (heartbeat)
+        // 🔁 heartbeat
         setInterval(() => {
-            webOS.service.request("luna://com.webos.service.applicationmanager/getForegroundAppInfo", {
-                method: "getForegroundAppInfo"
-            });
-        }, 30000);
+            webOS.service.request(
+                "luna://com.webos.service.applicationmanager/getForegroundAppInfo",
+                { method: "getForegroundAppInfo" }
+            );
+        }, 20000);
 
-    } else {
-        console.log("Modo navegador (não WebOS)");
     }
-
 });
